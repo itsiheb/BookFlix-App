@@ -27,7 +27,7 @@
           </div>
 
             <div class="card-header">
-               <h3 class="h4 mb-0 text-gray-800">  <a class="btn-sm btn-info" href="{{route('categories.create') }}" class="float-left"> Ajouter Une Categorie </a> </h3>
+               <h3 class="h4 mb-0 text-gray-800">  <a class="btn-sm btn-info" href="{{route('categories.create') }}" class="float-left"> + Add New </a> </h3>
             </div>
 
         </div>
@@ -37,6 +37,7 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Description</th>
+      <th scope="col">sous_category</th>
       <th scope="col">Ajouter le </th>
 
     </tr>
@@ -48,11 +49,11 @@
       <td>{{$category->description}}</td>
       <td>{{$category->created_at}}</td>
       <td>
-        <a class="btn-sm btn-primary" href="{{route('categories.edit',$category->id)}}">Modifier</a>
+        <a class="btn-sm btn-primary" href="{{route('categories.edit',$category->id)}}">Modify</a>
         <th>   <form method="POST" action="{{route('categories.destroy',$category->id)}}">
             @csrf
             @method('DELETE')
-            <button class="btn-sm btn-danger">Supprimer</button>
+            <button class="btn-sm btn-danger">Delete</button>
             </form> </th>
       </td>
 
