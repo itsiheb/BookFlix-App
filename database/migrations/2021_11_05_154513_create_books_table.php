@@ -17,8 +17,9 @@ class CreateBooksTable extends Migration
             $table->id();
             $table->string('author');
             $table->string('title');
-            $table->integer('nbr_copies');
+            $table->string('nbr_copies');
             $table->string('points');
+            $table->foreignId('category_id')->constrained('categories');
             $table->timestamps();
         });
     }

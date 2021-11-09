@@ -17,8 +17,8 @@ class CreateDemandesTable extends Migration
             $table->id();
             $table->foreignId('member_id')->constrained('users');
             $table->foreignId('book_id')->constrained('books');
-            $table->string('date_cmd');
-            $table->string('date_retour');
+            $table->date('date_cmd');
+            $table->date('date_retour');
             $table->integer('nbr_copies_cmd');
             $table->timestamps();
         });

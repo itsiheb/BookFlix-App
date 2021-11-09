@@ -35,7 +35,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <i class="fa fa-book"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">BookFlix <sup></sup></div>
             </a>
@@ -67,32 +67,33 @@
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href=#>
-                    <i class="fas fa-fw fa-icons"></i>
+                <i class="fas fa-fw fa-user"></i>
                     <span>Members</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="{{route('categories.index')}}">
-                    <i class="fas fa-fw fa-building"></i>
+
+                    <i class="fas fa-fw fa-icons"></i>
                     <span>Categories</span></a>
             </li>
 
 
             <li class="nav-item">
-                <a class="nav-link" href=#>
+                <a class="nav-link" href="{{route('books.index')}}">
                     <i class="fas fa-fw fa-window-restore"></i>
                     <span>Books</span></a>
             </li>
 
 
             <li class="nav-item">
-                <a class="nav-link" href=#>
-                    <i class="fas fa-fw fa-user"></i>
+                <a class="nav-link" href="{{route('histories.index')}}">
+                <i class="fas fa-fw fa-building"></i>
                     <span>archive</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href=#>
+                <a class="nav-link" href="{{route('demandes.index')}}">
                 <i class="fas fa-fw fa-list"></i>
                     <span>Requests</span></a>
             </li>
@@ -136,7 +137,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><i class="fas fa-user fa-2x text-blue-300"></i> | Admin connecté : {{ Auth::user()->name }}</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><i class="fas fa-user fa-2x text-blue-300"></i> | Admin connecté : {{ Auth::user()->nom }} {{ Auth::user()->prenom }}</span>
 
                             </a>
                             <!-- Dropdown - User Information -->
@@ -166,7 +167,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Iheb AMRI  2021</span>
+                        <span>Copyright &copy; Iheb , Bechir & Achref 2021/2022</span>
                     </div>
                 </div>
             </footer>

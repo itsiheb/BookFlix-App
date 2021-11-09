@@ -4,13 +4,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-<h1 class="h2 mb-0 text-gray-800">Categories </h1>
+<h1 class="h2 mb-0 text-gray-800">Books </h1>
     </div>
 
         <div class="card">
           <form>
             <div class="input-group input-group-sm">
-                <input class="form-control form-control-navbar" type="search" placeholder="Search for a Category here..." aria-label="Search" name="search" id="search">
+                <input class="form-control form-control-navbar" type="search" placeholder="Search for a book here..." aria-label="Search" name="search" id="search">
                 <div class="input-group-append">
                     <button class="btn btn-navbar" type="submit">
                         <i class="fas fa-search"></i>
@@ -27,7 +27,7 @@
           </div>
 
             <div class="card-header">
-               <h3 class="h4 mb-0 text-gray-800">  <a class="btn-sm btn-info" href="{{route('categories.create') }}" class="float-left"> + Add New </a> </h3>
+               <h3 class="h4 mb-0 text-gray-800">  <a class="btn-sm btn-info" href="{{route('books.create') }}" class="float-left"> + Add New </a> </h3>
             </div>
 
         </div>
@@ -36,23 +36,26 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Description</th>
-      <th scope="col">sous_category</th>
-      <th scope="col">Ajouter le </th>
+      <th scope="col">Author</th>
+      <th scope="col">Title</th>
+      <th scope="col">number of copies </th>
+      <th scope="col">Bonus points </th>
+      <th scope="col">Added date </th>
 
     </tr>
   </thead>
   <tbody>
-      @foreach ($categories as $category)
+      @foreach ($books as $book)
     <tr>
-      <th scope="row">{{$category->id}}</th>
-      <td>{{$category->description}}</td>
-      <td>{{$category->sous_category}}</td>
-      <td>{{$category->created_at}}</td>
-
+      <th scope="row">{{$book->id}}</th>
+      <td>{{$book->author}}</td>
+      <td>{{$book->title}}</td>
+      <td>{{$book->nbr_copies}}</td>
+      <td>{{$book->points}}</td>
+      <td>{{$book->created_at}}</td>
       <td>
-        <a class="btn-sm btn-primary" href="{{route('categories.edit',$category->id)}}">Modify</a>
-        <th>   <form method="POST" action="{{route('categories.destroy',$category->id)}}">
+        <a class="btn-sm btn-primary" href="{{route('books.edit',$book->id)}}">Modify</a>
+        <th>   <form method="POST" action="{{route('books.destroy',$book->id)}}">
             @csrf
             @method('DELETE')
             <button class="btn-sm btn-danger">Delete</button>
