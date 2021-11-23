@@ -19,7 +19,7 @@ class BookController extends Controller
     public function index()
     {
         $books = Book::all();
-        return view('books.index',compact('books'));
+        return view('books.index', compact('books'));
     }
 
     /**
@@ -30,8 +30,7 @@ class BookController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('books.create',compact('categories'));
-
+        return view('books.create', compact('categories'));
     }
 
     /**
@@ -42,14 +41,18 @@ class BookController extends Controller
      */
     public function store(BookStoreRequest $request)
     {
+        $category = $request->categories;
+        $test = (int) $category;
         Book::create([
-            'author'=>$request->author,
-            'title'=>$request->title,
-            'nbr_copies'=>$request->nbr_copies,
-            'points'=>$request->points,
-            'category_id'=>1
+            'author' => $request->author,
+            'title' => $request->title,
+            'copies' => $request->copies,
+            'points' => $request->points,
+            'category_id' => $test,
         ]);
-        return redirect()->Route('books.index')->with('message','Book added successfully !');
+        return redirect()
+            ->Route('books.index')
+            ->with('message', 'Book added successfully !');
     }
 
     /**
@@ -72,7 +75,7 @@ class BookController extends Controller
     public function edit($id)
     {
         $book = Book::find($id);
-        return view('books.edit',compact('book'));
+        return view('books.edit', compact('book'));
     }
 
     /**
@@ -87,12 +90,13 @@ class BookController extends Controller
         $book = Book::find($id);
         $book->author = $request->author;
         $book->title = $request->title;
-        $book->nbr_copies = $request->nbr_copies;
+        $book->copies = $request->copies;
         $book->points = $request->points;
         $book->update();
 
-        return redirect()->route('books.index')->with('message','Book Modified successfully !');
-
+        return redirect()
+            ->route('books.index')
+            ->with('message', 'Book Modified successfully !');
     }
 
     /**
@@ -104,7 +108,8 @@ class BookController extends Controller
     public function destroy(Book $book)
     {
         $book->delete();
-        return redirect()->route('books.index')->with('message','book deleted successfully !');
-
+        return redirect()
+            ->route('books.index')
+            ->with('message', 'book deleted successfully !');
     }
 }

@@ -19,8 +19,8 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                               Nombres des Membres inscri</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">#</div>
+                                               Members</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$members}}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-user fa-2x text-gray-300"></i>
@@ -36,11 +36,11 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Nombres des demandes
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Books
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">#</div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$books}}</div>
                                                 </div>
 
                                             </div>
@@ -60,8 +60,8 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                               Nombres des evennements </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">#</div>
+                                                Categories </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$categories}}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-icons fa-2x text-gray-300"></i>
@@ -78,7 +78,7 @@
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                           Nombres des Locales</div>
+                                           requests</div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800">#</div>
                                     </div>
                                     <div class="col-auto">

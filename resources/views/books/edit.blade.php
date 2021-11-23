@@ -49,12 +49,12 @@
 
 
                                     <div class="form-group row">
-                                        <label for="nbr_copies" class="col-md-4 col-form-label text-md-right">{{ __('Number of Copies') }}</label>
+                                        <label for="copies" class="col-md-4 col-form-label text-md-right">{{ __('Number of Copies') }}</label>
 
                                         <div class="col-md-6">
-                                            <input id="nbr_copies" type="text" class="form-control @error('nbr_copies') is-invalid @enderror" name="nbr_copies" value="{{ old('nbr_copies',$book->nbr_copies) }}" required autocomplete="nbr_copies" autofocus>
+                                            <input id="copies" type="text" class="form-control @error('copies') is-invalid @enderror" name="copies" value="{{ old('copies',$book->copies) }}" required autocomplete="copies" autofocus>
 
-                                            @error('nbr_copies')
+                                            @error('copies')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>

@@ -59,7 +59,7 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href=#>
+                <a class="nav-link" href="{{route('statistics.index')}}">
                 <i class="fas fa-fw fa-cookie-bite"></i>
                     <span>Statistics</span></a>
             </li>
@@ -137,7 +137,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><i class="fas fa-user fa-2x text-blue-300"></i> | Admin connecté : {{ Auth::user()->nom }} {{ Auth::user()->prenom }}</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><i class="fas fa-user fa-2x text-blue-300"></i> | Admin : {{ Auth::user()->nom }} {{ Auth::user()->prenom }}</span>
 
                             </a>
                             <!-- Dropdown - User Information -->

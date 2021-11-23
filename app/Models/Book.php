@@ -7,9 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
-    protected $fillable = ['author','title',',nbr_copies','points'];
+    protected $fillable = [
+        'author',
+        'title',
+        'copies',
+        'points',
+        'category_id',
+    ];
     use HasFactory;
-
 
     public function category()
     {
