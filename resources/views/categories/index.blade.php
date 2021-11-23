@@ -37,8 +37,8 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Description</th>
-      <th scope="col">sous_category</th>
-      <th scope="col">Ajouter le </th>
+      <th scope="col">sub_category</th>
+      <th scope="col">Added date </th>
 
     </tr>
   </thead>

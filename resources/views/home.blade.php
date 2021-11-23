@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"> Admin {{Auth::user()->name }}</div>
+                <div class="card-header"> Admin {{Auth::user()->prenom }}  {{Auth::user()->nom }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('Bonne Journé !') }}
+                    {{ __('Great to have you back !') }}
                 </div>
             </div>
         </div>

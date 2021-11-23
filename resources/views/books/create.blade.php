@@ -21,7 +21,7 @@
                                     @csrf
 
                                     <div class="form-group row">
-                                        <label for="author" class="col-md-4 col-form-label text-md-right">{{ __('Author') }}</label>
+                                        <label for="author" class="col-md-4 col-form-label text-md-left">{{ __('Author') }}</label>
 
                                         <div class="col-md-6">
                                             <input id="author" type="text" class="form-control @error('author') is-invalid @enderror" name="author" value="{{ old('author') }}" required autocomplete="author" autofocus>
@@ -36,7 +36,7 @@
 
 
                                     <div class="form-group row">
-                                        <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('Title') }}</label>
+                                        <label for="title" class="col-md-4 col-form-label text-md-left">{{ __('Title') }}</label>
 
                                         <div class="col-md-6">
                                             <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" required autocomplete="title" autofocus>
@@ -51,12 +51,12 @@
 
 
                                     <div class="form-group row">
-                                        <label for="nbr_copies" class="col-md-4 col-form-label text-md-right">{{ __('Number of Copies') }}</label>
+                                        <label for="copies" class="col-md-4 col-form-label text-md-left">{{ __('Number of Copies') }}</label>
 
                                         <div class="col-md-6">
-                                            <input id="nbr_copies" type="text" class="form-control @error('nbr_copies') is-invalid @enderror" name="nbr_copies" value="{{ old('nbr_copies') }}" required autocomplete="nbr_copies" autofocus>
+                                            <input id="copies" type="text" class="form-control @error('copies') is-invalid @enderror" name="copies" value="{{ old('copies') }}" required autocomplete="copies" autofocus>
 
-                                            @error('nbr_copies')
+                                            @error('copies')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -66,7 +66,7 @@
 
 
                                     <div class="form-group row">
-                                        <label for="points" class="col-md-4 col-form-label text-md-right">{{ __('Bonus Points') }}</label>
+                                        <label for="points" class="col-md-4 col-form-label text-md-left">{{ __('Bonus Points') }}</label>
 
                                         <div class="col-md-6">
                                             <input id="points" type="text" class="form-control @error('points') is-invalid @enderror" name="points" value="{{ old('points') }}" required autocomplete="points" autofocus>
@@ -79,13 +79,13 @@
                                         </div>
                                     </div>
 
-                            <!--
+
                                     <div class="form-group row">
                                         <div class="col-md-6">
-                                        <label for="category" class="col-md-8 col-form-label text-md-right">{{ __('Category') }}</label>
-                                        <select class="form-control">
+                                        <label for="category" class="col-md-8 col-form-label text-md-left">{{ __('Category') }}</label>
+                                        <select class="form-control" name="categories">
                                         @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->description }}</option>
+                                        <option value="{{ $category->id }}" name="category" id="category">{{ $category->description }}</option>
                                         @endforeach
                                         </select>
                                             @error('category')
@@ -95,7 +95,7 @@
                                             @enderror
                                         </div>
                                     </div>
--->
+
 
 
 

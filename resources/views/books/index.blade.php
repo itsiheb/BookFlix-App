@@ -40,6 +40,7 @@
       <th scope="col">Title</th>
       <th scope="col">number of copies </th>
       <th scope="col">Bonus points </th>
+      <th scope="col">Book Category </th>
       <th scope="col">Added date </th>
 
     </tr>
@@ -50,8 +51,9 @@
       <th scope="row">{{$book->id}}</th>
       <td>{{$book->author}}</td>
       <td>{{$book->title}}</td>
-      <td>{{$book->nbr_copies}}</td>
+      <td>{{$book->copies}}</td>
       <td>{{$book->points}}</td>
+      <td>{{$book->category->description}}</td>
       <td>{{$book->created_at}}</td>
       <td>
         <a class="btn-sm btn-primary" href="{{route('books.edit',$book->id)}}">Modify</a>
