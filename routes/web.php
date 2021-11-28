@@ -41,3 +41,4 @@ Route::resource('demandes', ('App\Http\Controllers\DemandeController')::class);
 Route::resource('books', ('App\Http\Controllers\BookController')::class);
 Route::resource('histories', ('App\Http\Controllers\HistoryController')::class);
 Route::resource('statistics', ('App\Http\Controllers\StatController')::class);
+Route::resource('users', ('App\Http\Controllers\UserController')::class);
