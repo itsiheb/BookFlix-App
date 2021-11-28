@@ -23,6 +23,16 @@ Route::get('/home', [
     App\Http\Controllers\HomeController::class,
     'index',
 ])->name('home');
+
+
+
+// custom route for the user
+Route::get('/user', [
+    App\Http\Controllers\UserController::class,
+    'index',
+])->name('user');
+
+
 Route::resource(
     'categories',
     ('App\Http\Controllers\CategoryController')::class
