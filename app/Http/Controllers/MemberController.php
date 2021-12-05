@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\Model;
-use App\Models\Category;
-use App\Http\Requests\CategoryStoreRequest;
-use App\Http\Requests\CategoryUpdateRequest;
+use App\Models\User;
+use App\Models\Book;
+use App\Models\Demande;
 
-class CategoryController extends Controller
+class MemberController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +16,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        return view('categories.index', compact('categories'));
+        $users = User::where('role', 'user')->get();
+        // $books_requested = Demande::where('member_id',$users->id);
+        return view('members.index', compact('users'));
     }
 
     /**
@@ -28,7 +28,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('categories.create');
+        //
     }
 
     /**
@@ -37,15 +37,9 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CategoryStoreRequest $request)
+    public function store(Request $request)
     {
-        Category::create([
-            'description' => $request->description,
-            'sous_category' => $request->sous_category,
-        ]);
-        return redirect()
-            ->Route('categories.index')
-            ->with('message', 'category added successfully !');
+        //
     }
 
     /**
@@ -67,8 +61,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
-        return view('categories.edit', compact('category'));
+        $user = User::find($id);
+        return view('members.edit', compact('user'));
     }
 
     /**
@@ -78,16 +72,16 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CategoryUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $category = Category::find($id);
-        $category->description = $request->description;
-        $category->sous_category = $request->sous_category;
-        $category->update();
+        $user = User::find($id);
+        $user->email = $request->email;
+        $user->tel = $request->tel;
+        $user->update();
 
         return redirect()
-            ->route('categories.index')
-            ->with('message', 'category Modified successfully !');
+            ->route('members.index')
+            ->with('message', 'User Modified successfully !');
     }
 
     /**
@@ -98,10 +92,10 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::find($id);
-        $category->delete();
+        $user = User::find($id);
+        $user->delete();
         return redirect()
-            ->route('categories.index')
-            ->with('message', 'category deleted successfully !');
+            ->route('members.index')
+            ->with('message', 'User deleted successfully !');
     }
 }

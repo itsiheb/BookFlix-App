@@ -66,7 +66,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href=#>
+                <a class="nav-link" href="{{route('members.index')}}">
                 <i class="fas fa-fw fa-user"></i>
                     <span>Members</span></a>
             </li>
@@ -86,11 +86,11 @@
             </li>
 
 
-            <li class="nav-item">
+           <!-- <li class="nav-item">
                 <a class="nav-link" href="{{route('histories.index')}}">
                 <i class="fas fa-fw fa-building"></i>
                     <span>archive</span></a>
-            </li>
+            </li> -->
 
             <li class="nav-item">
                 <a class="nav-link" href="{{route('demandes.index')}}">
@@ -102,9 +102,7 @@
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+
 
 
         </ul>

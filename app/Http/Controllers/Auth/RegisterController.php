@@ -61,6 +61,7 @@ class RegisterController extends Controller
             ],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
             'telephone' => ['required', 'string', 'min:8', 'max:8'],
+            'points' => ['string'],
         ]);
     }
 
@@ -72,16 +73,29 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $role = $data['roles'];
+
+        if ((string) $data['roles'] == 'user') {
+            $points = 0;
+        } else {
+            $points = 99999;
+        }
+
         $user = User::create([
             'nom' => $data['nom'],
             'prenom' => $data['prenom'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'telephone' => $data['telephone'],
-            'role' => 'admin',
-            'points' => '99999',
+            'tel' => $data['telephone'],
+            'role' => (string) $role,
+            'points' => (string) $points,
         ]);
-        $user->attachRole('user');
+        if ($role == 'admin') {
+            $user->attachRole('superadministrator');
+        } elseif ($role == 'user') {
+            $user->attachRole('user');
+        }
+
         return $user;
     }
 }

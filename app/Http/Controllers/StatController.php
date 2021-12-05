@@ -17,14 +17,16 @@ class StatController extends Controller
      */
     public function index()
     {
-        $members = DB::table('users')->count();
+        $members = User::where('role', 'user')->count();
         $categories = DB::table('categories')->count();
         $books = DB::table('books')->count();
+        $demandes = DB::table('demandes')->count();
 
         return view('statistics.index', [
             'members' => $members,
             'books' => $books,
             'categories' => $categories,
+            'demandes' => $demandes,
         ]);
     }
 

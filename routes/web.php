@@ -42,3 +42,8 @@ Route::resource('books', ('App\Http\Controllers\BookController')::class);
 Route::resource('histories', ('App\Http\Controllers\HistoryController')::class);
 Route::resource('statistics', ('App\Http\Controllers\StatController')::class);
 Route::resource('users', ('App\Http\Controllers\UserController')::class);
+Route::resource('home', ('App\Http\Controllers\HomeController')::class);
+Route::resource('members', ('App\Http\Controllers\MemberController')::class);
+
+Route::get('/store/{id}', 'DemandeController@store');
+Route::get('/create/{id}', 'DemandeController@create');

@@ -20,4 +20,13 @@ class Book extends Model
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
+    public function users()
+    {
+        return $this->HasMany(User::class, 'user_id');
+    }
+
+    public function demande()
+    {
+        return $this->belongTo(Demande::class, 'demande_id');
+    }
 }

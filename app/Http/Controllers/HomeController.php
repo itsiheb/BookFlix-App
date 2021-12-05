@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use App\Models\User;
+use App\Providers\RouteServiceProvider;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -14,7 +16,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('role:superadministrator');
+        $this->middleware('auth');
+        //$this->middleware('role:superadministrator');
     }
 
     /**
@@ -24,13 +27,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user = user::Auth();
-
-        if ($user->hasRole('user')) {
-            return redirect('/user');
-        }
-        if ($user->hasRole('superadministrator')) {
-            return redirect(RouteServiceProvider::HOME);
-        }
+        return view('home');
     }
 }

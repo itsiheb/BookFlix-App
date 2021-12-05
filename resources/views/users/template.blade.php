@@ -90,8 +90,6 @@ https://templatemo.com/tm-546-sixteen-clothing
       </nav>
     </header>
 
-    <!-- Page Content -->
-    <!-- Banner Starts Here -->
     <div class="banner header-text">
       <div class="owl-banner owl-carousel">
         <div class="banner-item-01">
@@ -124,33 +122,11 @@ https://templatemo.com/tm-546-sixteen-clothing
               <h2>Latest Books in the Collection</h2>
             </div>
           </div>
-          @foreach ($books as $book)
-          <div class="col-md-4">
-            <div class="product-item">
-              <a href="#"><img src="assets/images/product_01.jpg" alt=""></a>
-              <div class="down-content">
-                <a href="#"><h4>{{$book->title}}</h4></a>
-                <h4>Copies :{{$book->points}}</h4>
-                {{$book->author}}
-                <ul class="stars">
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                </ul>
-                <span>Bonus points ({{$book->points}})</span>
-              </div>
-              <a class="btn-sm btn-dark" href="{{route('demandes.edit',$book->id)}}">Request</a>
-              <a class="btn-sm btn-secondary" href="{{route('users.update',$book->id)}}">Get with Bonus</a>
 
-            </div>
-          </div>
-          @endforeach
 
-        </div>
-      </div>
-    </div>
+    @yield('content')
+
+
 
     <div class="best-features">
       <div class="container">

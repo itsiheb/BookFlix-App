@@ -7,12 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-     protected $fillable = ['description','sous_category'];
-     use HasFactory;
+    protected $fillable = ['description', 'sous_category'];
+    use HasFactory;
 
-     public function books()
-     {
-         return $this->hasMany(Book::class);
-     }
-
+    public function books()
+    {
+        return $this->hasMany(Book::class);
+    }
 }

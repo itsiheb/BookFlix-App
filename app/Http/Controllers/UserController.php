@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        // $this->middleware('auth');
+        //$this->middleware('role:user');
     }
     /**
      * Display a listing of the resource.
@@ -19,7 +19,7 @@ class UserController extends Controller
     public function index()
     {
         $books = Book::all();
-        return view('user.index', compact('books'));
+        return view('users.index', compact('books'));
     }
 
     /**

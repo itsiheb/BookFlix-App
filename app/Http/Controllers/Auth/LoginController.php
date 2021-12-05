@@ -29,10 +29,11 @@ class LoginController extends Controller
      */
     protected function authentificated(Request $request, $user)
     {
-        if ($user->hasRole('superadministrator')) {
-            return redirect(RouteServiceProvider::HOME);
-        } elseif ($user->hasRole('user')) {
+        if ($user->role == 'user') {
             return redirect('/user');
+        }
+        if ($user->role == 'admin') {
+            return redirect('/home');
         }
     }
     //protected $redirectTo = RouteServiceProvider::HOME;

@@ -4,13 +4,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-<h1 class="h2 mb-0 text-gray-800">Request History </h1>
+<h1 class="h2 mb-0 text-gray-800">Users </h1>
     </div>
 
         <div class="card">
           <form>
             <div class="input-group input-group-sm">
-                <input class="form-control form-control-navbar" type="search" placeholder="Search for a Request here..." aria-label="Search" name="search" id="search">
+                <input class="form-control form-control-navbar" type="search" placeholder="Search for a User here..." aria-label="Search" name="search" id="search">
                 <div class="input-group-append">
                     <button class="btn btn-navbar" type="submit">
                         <i class="fas fa-search"></i>
@@ -26,45 +26,46 @@
           @endif
           </div>
 
+            <div class="card-header">
+               <h3 class="h4 mb-0 text-gray-800">  <a class="btn-sm btn-info" href="{{route('categories.create') }}" class="float-left"> + Add New </a> </h3>
+            </div>
 
         </div>
         <div class="card-body">
-    <table class="table  table-striped"  id="category_table">
+    <table class="table  table-striped"  id="member_table">
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Member</th>
-      <th scope="col">Book</th>
-      <th scope="col">Return Date </th>
-      <th scope="col">Copies reserved </th>
+      <th scope="col">Name</th>
+      <th scope="col">Surname</th>
+      <th scope="col">email </th>
+      <th scope="col">Phone </th>
+      <th scope="col">Points </th>
+
 
     </tr>
   </thead>
   <tbody>
-
-      @foreach ($demandes as $demande)
-      @foreach ($members as $member)
+      @foreach ($users as $user)
     <tr>
-    @if ($member->id == $demande->member_id)
-      <th scope="row">{{$demande->id}}</th>
+      <th scope="row">{{$user->id}}</th>
+      <td>{{$user->nom}}</td>
+      <td>{{$user->prenom}}</td>
+      <td>{{$user->email}}</td>
+      <td>{{$user->tel}}</td>
+      <td>{{$user->points}}</td>
 
-      <td>  {{$member->nom}} {{$member->prenom}}</td>
-
-      <td> Becomming </td>
-      <td>{{$demande->date_retour}}</td>
-      <td>{{$demande->nbr_copies_cmd}}</td>
 
       <td>
-
-        <th>   <form method="POST" action="{{route('demandes.destroy',$demande->id)}}">
+        <a class="btn-sm btn-primary" href="{{route('members.edit',$user->id)}}">Modify</a>
+        <th>   <form method="POST" action="{{route('members.destroy',$user->id)}}">
             @csrf
             @method('DELETE')
             <button class="btn-sm btn-danger">Delete</button>
             </form> </th>
       </td>
-      @endif
+
     </tr>
-    @endforeach
     @endforeach
   </tbody>
 </table>
@@ -76,7 +77,7 @@
       { $('#search').keyup(function(){
           search_table($(this).val());  });
       function search_table(value){
-          $('#category_table tr').each(function()
+          $('#member_table tr').each(function()
           { var found = 'false';
           $(this).each(function(){
               if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)

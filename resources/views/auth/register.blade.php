@@ -90,6 +90,32 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="form-group row">
+                                        <div class="col-md-6">
+                                        <label for="role" class="col-md-8 col-form-label text-md-left">{{ __('Role') }}</label>
+                                        <select class="form-control" name="roles">
+
+                                        <option value="admin" name="admin" id="admin">Admin</option>
+                                        <option value="user" name="user" id="user">User</option>
+                                        </select>
+                                            @error('role')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-group row">
+
+                            <div class="col-md-6">
+                                <input id="points" type="text"  style="display:none" name="points" value="0" required autocomplete="points" autofocus>
+
+                                                            </div>
+                        </div>
+
 
 
                         <div class="form-group row mb-0">
